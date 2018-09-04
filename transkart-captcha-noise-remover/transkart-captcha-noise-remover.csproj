@@ -6,4 +6,8 @@
     <RootNamespace>transkart_captcha_noise_remover</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="1.60.3" />
+  </ItemGroup>
+
 </Project>
