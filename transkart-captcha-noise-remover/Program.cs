@@ -13,7 +13,7 @@ namespace transkart_captcha_noise_remover
             string PathToCaptcha = @"C:\Users\thedc\Desktop\Капча Транспортная карта\Пример.jpg";
             string OutputPath = @"C:\Users\thedc\Desktop\Капча Транспортная карта\output.jpg";
             int RGBComponentThresholdValue = 70;
-            int MaxBlotArea = 30;
+            int MaxBlotArea = 45;
 
             HandleCaptcha(PathToCaptcha, OutputPath, RGBComponentThresholdValue, MaxBlotArea);
         }
@@ -54,6 +54,11 @@ namespace transkart_captcha_noise_remover
             FileStream stream = new FileStream(Output, FileMode.Create, FileAccess.Write);
             data.SaveTo(stream);
             stream.Close();
+            // Resources release
+            stream.Dispose();
+            data.Dispose();
+            image.Dispose();
+            bitmap.Dispose();
             // The end
             Console.Write("The work has been completed. Press any key to exit..");
             Console.ReadKey(true);
